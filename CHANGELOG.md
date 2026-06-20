@@ -1,5 +1,35 @@
 # Changelog
 
+## 2026.06.20 — rename theme identity to Kiro namespace (coexist with upstream Layan)
+
+### What Changed
+- Renamed every shipped theme identity from the upstream `Layan` name into a `Kiro-`
+  namespace so the package **coexists with the upstream Layan theme + cursors** — a user
+  can install `layan-kde-theme-git` / `layan-cursors-git` alongside this without any pacman
+  file conflict — and so System Settings shows honest **Kiro Layan** / **Kiro Layan Light**
+  labels.
+- Internal identifiers (folders, `Id`, `__aurorae__svg__` token, `ColorScheme`, Kvantum
+  dirs, SDDM `Theme-Id`, `.colors` filenames, cursor dirs) → hyphenated `Kiro-Layan*` /
+  `com.kiroproject.Layan*`. Visible Global Theme names are the spaced **Kiro Layan** forms.
+
+### Technical Details
+- Look-and-feel `com.github.vinceliuice.Layan{,-light}` → `com.kiroproject.Layan{,-light}`
+  (both `metadata.json` and legacy `metadata.desktop` Id+Name). Desktoptheme, aurorae
+  (incl. `*rc`), Kvantum (incl. dual `*Dark` configs/svgs), SDDM, color schemes, and the
+  three cursor themes all prefixed `Kiro-`.
+- SDDM `Main.qml` carried **absolute self-paths** (`/usr/share/sddm/themes/Layan…`) — these
+  were repointed to the renamed dirs.
+- Cross-references repointed: look-and-feel `defaults` (`cursorTheme`/`ColorScheme`/
+  `__aurorae__svg__`/`plasmarc name`) and `etc/skel` Kvantum `theme=Kiro-Layan`. External
+  icon refs (`Tela`/`Tela-circle`) unchanged.
+- PKGBUILD: dropped `conflicts=(layan-kde-theme-git layan-cursors-git)` and bumped `pkgrel`.
+
+### Files Modified
+- Renamed all theme dirs/files under `usr/share/{plasma,aurorae,color-schemes,Kvantum,sddm,icons}` to `Kiro-Layan*`
+- Look-and-feel `contents/defaults`, SDDM `Main.qml`, `etc/skel/.config/Kvantum/kvantum.kvconfig` — repointed
+- `README.md`, `CLAUDE.md` — Kiro Layan naming + coexistence note
+- `../KIRO-PKG-BUILD-APPS/kiro-plasma-layan/PKGBUILD` — drop upstream conflicts, bump pkgrel
+
 ## 2026.06.20 — initial package
 
 ### What Changed

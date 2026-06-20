@@ -1,0 +1,20 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "vinceliuice@hotmail.com",
+                "Name": "Vinceliuice"
+            }
+        ],
+        "Category": "",
+        "Dependencies": [
+        ],
+        "Description": "Layan theme for plasma",
+        "EnabledByDefault": true,
+        "Id": "Kiro-Layan",
+        "License": "GPL 3.0",
+        "Name": "Kiro Layan",
+        "Version": "0.1",
+        "Website": "https://github.com/vinceliuice/Layan-kde"
+    }
+}

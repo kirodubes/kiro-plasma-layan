@@ -19,9 +19,9 @@ extra. Sibling to [[kiro-plasma-sweet]] and [[kiro-plasma-nord]].
   Store files are pre-merged. If refreshing the dark desktoptheme from git, do the overlay.
 - **Icons are Tela** (deliberate — upstream's pairing). Recipe depends on `tela-icon-theme`.
   Defaults reference `Tela`; do NOT repoint to neo-candy.
-- **No defaults edits** — `Tela` (dep) and `Layan-white-cursors` (bundled) are satisfied.
-- Cursors bundled: `Layan-cursors`, `Layan-white-cursors` (the one defaults use), `-border`.
-- Kvantum default for new users: `etc/skel/.config/Kvantum/kvantum.kvconfig` → `theme=Layan`.
+- **No defaults edits** — `Tela` (dep) and `Kiro-Layan-white-cursors` (bundled) are satisfied.
+- Cursors bundled: `Kiro-Layan-cursors`, `Kiro-Layan-white-cursors` (the one defaults use), `-border`.
+- Kvantum default for new users: `etc/skel/.config/Kvantum/kvantum.kvconfig` → `theme=Kiro-Layan`.
 - SDDM from `sddm/6.0/` only (Plasma 6); `sddm/5.0/` excluded. konsole excluded.
 - Mixed delivery: payload → `/usr/share`, Kvantum selection → `/etc/skel`. PKGBUILD copies both.
 - **Test on the Plasma test box** — dark is a regression check (works from Store); confirm
