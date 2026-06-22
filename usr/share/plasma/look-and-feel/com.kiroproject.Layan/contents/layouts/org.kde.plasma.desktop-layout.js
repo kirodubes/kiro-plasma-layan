@@ -100,7 +100,6 @@ var layout = {
                         },
                         "/Configuration/Appearance": {
                             "displayTimezoneAsCode": "false",
-                            "spinboxHorizontalPercentage": "60",
                             "use24hFormat": "2"
                         },
                         "/Configuration/ConfigDialog": {
@@ -108,7 +107,7 @@ var layout = {
                             "DialogWidth": "720"
                         }
                     },
-                    "plugin": "org.kde.plasma.splitdigitalclock"
+                    "plugin": "org.kde.plasma.digitalclock"
                 },
                 {
                     "config": {

@@ -1,5 +1,24 @@
 # Changelog
 
+## 2026.06.22 — Fix broken panel clock in Layan layouts (split → stock digital clock)
+
+### What Changed
+- Both Layan look-and-feel layouts (dark + light) referenced the panel applet
+  `org.kde.plasma.splitdigitalclock` — a third-party plasmoid that is not shipped by the
+  package, not a dependency, and not installed on target systems. Applying the layout left a
+  broken/empty clock on the panel. Repointed to the stock `org.kde.plasma.digitalclock`,
+  matching every other kiro-plasma theme.
+
+### Technical Details
+- Changed `"plugin"` at the panel clock entry from `org.kde.plasma.splitdigitalclock` to
+  `org.kde.plasma.digitalclock` in both layout files. Dropped the split-clock-specific
+  `spinboxHorizontalPercentage` Appearance key (the stock applet has no such config); kept the
+  stock-valid `displayTimezoneAsCode` and `use24hFormat`. JS re-validated with `node --check`.
+
+### Files Modified
+- `usr/share/plasma/look-and-feel/com.kiroproject.Layan/contents/layouts/org.kde.plasma.desktop-layout.js`
+- `usr/share/plasma/look-and-feel/com.kiroproject.Layan-light/contents/layouts/org.kde.plasma.desktop-layout.js`
+
 ## 2026.06.20 — Kvantum default via install scriptlet (no packaged kvconfig)
 
 ### What Changed
