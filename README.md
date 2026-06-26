@@ -46,5 +46,5 @@ pick it in **Kvantum Manager**.
 Based on [vinceliuice/Layan-kde](https://github.com/vinceliuice/Layan-kde) and
 [vinceliuice/Layan-cursors](https://github.com/vinceliuice/Layan-cursors), GPL-3.0. The
 verified-working global-theme files were captured from a configured Plasma test box (the
-KDE-Store release), with the light variant / Kvantum / SDDM added from the git repo. See
+KDE-Store release), with Kvantum / SDDM added from the git repo. See
 [UPSTREAM.md](./UPSTREAM.md) for exact sources and refresh notes.

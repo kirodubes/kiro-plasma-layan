@@ -2,8 +2,9 @@
 
 ## Overview
 The **Layan** Plasma global theme for the Kiro Plasma edition — a clean flat/material
-look. Ships Layan (dark) + Layan Light as Global Themes, plus a Layan Solid Aurorae/Kvantum
-extra. Sibling to [[kiro-plasma-sweet]] and [[kiro-plasma-nord]].
+look. Ships Layan (dark) as a Global Theme, plus a Layan Solid Aurorae/Kvantum extra.
+Layan Light was removed 2026.06.22 (dark-only now). Sibling to [[kiro-plasma-sweet]] and
+[[kiro-plasma-nord]].
 
 ## Current state
 - Source repo: `~/KIRO/kiro-plasma-layan` (payload under `usr/`, Kvantum default `etc/skel`).
@@ -24,5 +25,4 @@ extra. Sibling to [[kiro-plasma-sweet]] and [[kiro-plasma-nord]].
 - Kvantum default for new users: `etc/skel/.config/Kvantum/kvantum.kvconfig` → `theme=Kiro-Layan`.
 - SDDM from `sddm/6.0/` only (Plasma 6); `sddm/5.0/` excluded. konsole excluded.
 - Mixed delivery: payload → `/usr/share`, Kvantum selection → `/etc/skel`. PKGBUILD copies both.
-- **Test on the Plasma test box** — dark is a regression check (works from Store); confirm
-  Layan Light (git-sourced) also applies.
+- **Test on the Plasma test box** — dark is a regression check (works from Store).

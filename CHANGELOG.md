@@ -1,23 +1,40 @@
 # Changelog
 
-## 2026.06.22 — Fix broken panel clock in Layan layouts (split → stock digital clock)
+## 2026.06.22 — Remove Layan Light variant; fix broken panel clock
 
 ### What Changed
-- Both Layan look-and-feel layouts (dark + light) referenced the panel applet
+- **Removed the Layan Light variant entirely** — the package is now dark-only. Deleted the
+  light look-and-feel, desktoptheme, Aurorae decoration, color scheme, and SDDM theme. Dark
+  Layan + the Layan Solid Aurorae/Kvantum extra + cursors are unchanged.
+- **Fixed the broken panel clock.** The dark Layan layout referenced the panel applet
   `org.kde.plasma.splitdigitalclock` — a third-party plasmoid that is not shipped by the
-  package, not a dependency, and not installed on target systems. Applying the layout left a
-  broken/empty clock on the panel. Repointed to the stock `org.kde.plasma.digitalclock`,
-  matching every other kiro-plasma theme.
+  package, not a dependency, and not installed on target systems, leaving a broken/empty
+  clock. Repointed to the stock `org.kde.plasma.digitalclock`, matching every other
+  kiro-plasma theme. (The light layout had the same bug but was removed in this release.)
 
 ### Technical Details
-- Changed `"plugin"` at the panel clock entry from `org.kde.plasma.splitdigitalclock` to
-  `org.kde.plasma.digitalclock` in both layout files. Dropped the split-clock-specific
-  `spinboxHorizontalPercentage` Appearance key (the stock applet has no such config); kept the
-  stock-valid `displayTimezoneAsCode` and `use24hFormat`. JS re-validated with `node --check`.
+- Deleted source dirs/files: `look-and-feel/com.kiroproject.Layan-light`,
+  `desktoptheme/Kiro-Layan-light`, `aurorae/themes/Kiro-Layan-light`,
+  `color-schemes/Kiro-LayanLight.colors`, `sddm/themes/Kiro-Layan-light`. The PKGBUILD
+  installs via a blanket `cp -a usr`, so removing the files drops them from the package — no
+  recipe install lines to change. The light bits were self-contained; nothing in the dark
+  theme referenced them.
+- Clock: changed `"plugin"` at the panel clock entry from `org.kde.plasma.splitdigitalclock`
+  to `org.kde.plasma.digitalclock`; dropped the split-clock-specific `spinboxHorizontalPercentage`
+  Appearance key (stock applet has no such config); kept stock-valid `displayTimezoneAsCode`
+  and `use24hFormat`. JS re-validated with `node --check`.
+- PKGBUILD `pkgdesc` updated to dark-only (`pkgrel` auto-bumped by `build-data.sh`).
+- Docs updated: README.md, UPSTREAM.md (with a re-add note), project CLAUDE.md.
 
 ### Files Modified
+- Removed: `usr/share/plasma/look-and-feel/com.kiroproject.Layan-light/`,
+  `usr/share/plasma/desktoptheme/Kiro-Layan-light/`,
+  `usr/share/aurorae/themes/Kiro-Layan-light/`,
+  `usr/share/color-schemes/Kiro-LayanLight.colors`,
+  `usr/share/sddm/themes/Kiro-Layan-light/`
 - `usr/share/plasma/look-and-feel/com.kiroproject.Layan/contents/layouts/org.kde.plasma.desktop-layout.js`
-- `usr/share/plasma/look-and-feel/com.kiroproject.Layan-light/contents/layouts/org.kde.plasma.desktop-layout.js`
+- `README.md`, `UPSTREAM.md`, `CLAUDE.md`
+- `../KIRO-PKG-BUILD-APPS/kiro-plasma-layan/PKGBUILD`
 
 ## 2026.06.20 — Kvantum default via install scriptlet (no packaged kvconfig)
 

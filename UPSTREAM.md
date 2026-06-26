@@ -7,7 +7,7 @@ Everything needed to refresh this theme from upstream in the future.
 | Component | Source | Notes |
 |---------------------------|------------------------------------------|----------------------------|
 | Dark global theme (verified) | **Plasma test box** KDE-Store install, `~/.local/share/` | captured because the AUR build failed but the Store version works |
-| Light variant, Kvantum, SDDM | https://github.com/vinceliuice/Layan-kde @ `master` (`a0b6a49`) | git supplement |
+| Kvantum, SDDM | https://github.com/vinceliuice/Layan-kde @ `master` (`a0b6a49`) | git supplement |
 | Cursors | https://github.com/vinceliuice/Layan-cursors @ `master` (`b8c4689`) | bundled |
 
 - **Author:** vinceliuice · **License:** GPL-3.0 (upstream `LICENSE` carried in).
@@ -29,16 +29,21 @@ From the test box (`~/.local/share/`):
 | `plasma/look-and-feel/com.github.vinceliuice.Layan` | `usr/share/plasma/look-and-feel/` |
 | `plasma/desktoptheme/Layan` (common already merged) | `usr/share/plasma/desktoptheme/` |
 | `aurorae/themes/Layan` | `usr/share/aurorae/themes/` |
-| `color-schemes/{Layan,LayanLight}.colors` | `usr/share/color-schemes/` |
+| `color-schemes/Layan.colors` | `usr/share/color-schemes/` |
 
 From `vinceliuice/Layan-kde`:
 | Source | Installed to |
 |------------------------------|----------------------------------------|
-| `plasma/look-and-feel/com.github.vinceliuice.Layan-light` | `usr/share/plasma/look-and-feel/` |
-| `plasma/desktoptheme/Layan-light` (**overlay `common/` first**) | `usr/share/plasma/desktoptheme/` |
-| `aurorae/themes/{Layan-light,Layan-solid}` | `usr/share/aurorae/themes/` |
+| `aurorae/themes/Layan-solid` | `usr/share/aurorae/themes/` |
 | `Kvantum/{Layan,LayanSolid}` | `usr/share/Kvantum/` |
-| `sddm/6.0/{Layan,Layan-light}` | `usr/share/sddm/themes/` |
+| `sddm/6.0/Layan` | `usr/share/sddm/themes/` |
+
+> **Layan Light removed (2026.06.22):** the light variant (look-and-feel
+> `com.kiroproject.Layan-light`, `desktoptheme/Kiro-Layan-light`,
+> `aurorae/Kiro-Layan-light`, `color-schemes/Kiro-LayanLight.colors`,
+> `sddm/Kiro-Layan-light`) is no longer shipped. If re-adding it, pull the light
+> look-and-feel + `desktoptheme/Layan-light` (overlay `common/` first) + `sddm/6.0/Layan-light`
+> from `vinceliuice/Layan-kde`.
 
 From `vinceliuice/Layan-cursors`: `dist`→`icons/Layan-cursors`,
 `dist-border`→`icons/Layan-border-cursors`, `dist-white`→`icons/Layan-white-cursors`.
@@ -50,7 +55,7 @@ From `vinceliuice/Layan-cursors`: `dist`→`icons/Layan-cursors`,
 ## Refresh gotchas
 1. **Re-capture the dark variant from the working Store install**, not a raw git copy —
    or, if copying the dark desktoptheme from git, overlay `desktoptheme/common/` into
-   `desktoptheme/Layan/` first (same as the light variant).
+   `desktoptheme/Layan/` first.
 2. **No defaults edits** — the look-and-feel defaults reference `Tela` icons (external
    dep `tela-icon-theme`) and `Layan-white-cursors` (bundled). Both satisfied as-is.
 
@@ -58,5 +63,5 @@ Kiro-only file (not upstream — leave as is on refresh):
 - `etc/skel/.config/Kvantum/kvantum.kvconfig` → `[General] theme=Layan`
 
 ## Verify on the Plasma test box
-Layan (dark) is a regression check (already works from the Store); confirm Layan Light
-(git-sourced) also appears and applies in System Settings → Global Themes.
+Layan (dark) is a regression check (already works from the Store); confirm it appears and
+applies in System Settings → Global Themes.
